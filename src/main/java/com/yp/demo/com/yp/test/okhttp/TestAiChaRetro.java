@@ -37,7 +37,7 @@ public class TestAiChaRetro {
         map.put("tm",t);
         map.put("callback","_jqjsp");
         map.put("_"+(t+1)+"=","");
-        Call<String> call = retroSendRequest.getAiChaTraceInfo(waybill, map);
+        Call<String> call = retroSendRequest.getAiChaTraceInfo("https://biz.trace.ickd.cn/yd/"+waybill, map);
         String s = null;
         try {
             Response<String> jsonObjectResponse = call.execute();

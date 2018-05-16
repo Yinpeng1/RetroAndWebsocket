@@ -4,9 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.sourceforge.tess4j.Tesseract;
 import okhttp3.OkHttpClient;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.util.StringUtils;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -20,6 +17,7 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+//这是直接调用韵达官网，但是由于TESSECRAT验证码识别有问题 所以暂时用不了
 public class TestTessecract {
 
     public static String getYunDaInfo(String waybill, String hh, String yzm) {

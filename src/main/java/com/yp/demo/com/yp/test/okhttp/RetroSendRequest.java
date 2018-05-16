@@ -50,8 +50,9 @@ public interface RetroSendRequest {
             "Referer: https://www.ickd.cn/yd.html",
             "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
     })
-    @GET("{pathMailNo}")
-    Call<String> getAiChaTraceInfo(@Path("pathMailNo") String pathMailNo, @QueryMap Map<String, String> map);
+//    @GET("{pathMailNo}")
+    @GET
+    Call<String> getAiChaTraceInfo(@Url String url, @QueryMap Map<String, String> map);
 
     @Headers({
             "Accept: */*",
@@ -69,6 +70,8 @@ public interface RetroSendRequest {
     @GET("asyncqury")
     Call<String> getKuaiDiTraceInfo(@QueryMap Map<String, String> map);
 
+    @GET("index-ajaxselectcourierinfo-{pathMailNo}-yunda.html")
+    Call<String> getKuaiDiInterfaceTraceInfo(@Path("pathMailNo") String pathMailNo);
     @GET
     Call<String> testCount(@Url String url);
 }

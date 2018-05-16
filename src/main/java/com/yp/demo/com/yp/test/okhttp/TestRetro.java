@@ -1,12 +1,9 @@
 package com.yp.demo.com.yp.test.okhttp;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
-import org.springframework.util.StopWatch;
 import org.springframework.util.StringUtils;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -16,7 +13,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import java.io.IOException;
 
-
+//这是原来的快递100接口
 public class TestRetro {
 
     public static final String TMP = "0.9824289731522113";
