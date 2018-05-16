@@ -12,20 +12,20 @@ import java.util.Map;
 
 public class TestAllMethodGetlogisticsInfo {
 
-    public static   Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build();
+//    public static  Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
+//            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//            .addConverterFactory(ScalarsConverterFactory.create())
+//            .build();
     /**
      * 从爱查快递查询
      * @param waybill
      * @return
      */
     public static String getlogisticsInfoFromAiCha(String waybill){
-//         Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
-//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//                .addConverterFactory(ScalarsConverterFactory.create())
-//                .build();
+         Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
         RetroSendRequest retroSendRequest = retrofit.create(RetroSendRequest.class);
         Map<String, String> map = new LinkedHashMap<>();
         map.put("mailNo",waybill);
@@ -34,7 +34,7 @@ public class TestAllMethodGetlogisticsInfo {
         map.put("tm",t);
         map.put("callback","_jqjsp");
         map.put("_"+(t+1)+"=","");
-        Call<String> call = retroSendRequest.getAiChaTraceInfo("https://biz.trace.ickd.cn/yd/"+waybill, map);
+        Call<String> call = retroSendRequest.getAiChaTraceInfo(waybill, map);
         String s = null;
         try {
             Response<String> jsonObjectResponse = call.execute();
