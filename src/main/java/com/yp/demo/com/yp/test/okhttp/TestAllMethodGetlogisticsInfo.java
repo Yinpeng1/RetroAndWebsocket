@@ -1,6 +1,7 @@
 package com.yp.demo.com.yp.test.okhttp;
 
 import okhttp3.OkHttpClient;
+import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -9,19 +10,23 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
+@Service
 public class TestAllMethodGetlogisticsInfo {
 
-//    public static  Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
-//            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//            .addConverterFactory(ScalarsConverterFactory.create())
-//            .build();
+    //线程本地保存random，多线程会产生很对一样的随机数
+    private static ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
+    //线程安全，但是会造成系统抢占资源
+    private static Random random = new Random();
+
     /**
      * 从爱查快递查询
      * @param waybill
      * @return
      */
-    public static String getlogisticsInfoFromAiCha(String waybill){
+    public  String getlogisticsInfoFromAiCha(String waybill){
          Retrofit retrofit = new Retrofit.Builder().client(new OkHttpClient()).baseUrl("https://biz.trace.ickd.cn/yd/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -51,7 +56,7 @@ public class TestAllMethodGetlogisticsInfo {
      * @param waybill
      * @return
      */
-    public static String getLogisticsInfoFromOtherKuaidiInterface(String waybill) {
+    public  String getLogisticsInfoFromOtherKuaidiInterface(String waybill) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient())
                 .baseUrl("https://sp0.baidu.com/9_Q4sjW91Qh3otqbppnN2DJv/pae/channel/data/")
@@ -86,7 +91,7 @@ public class TestAllMethodGetlogisticsInfo {
      * @param waybill
      * @return
      */
-    public static String getLogisticsInfoFromKuaiDi(String waybill) {
+    public  String getLogisticsInfoFromKuaiDi(String waybill) {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient())
                 .baseUrl("http://www.kuaidi.com/")
@@ -108,7 +113,7 @@ public class TestAllMethodGetlogisticsInfo {
     }
 
     public static void main(String[] args) {
-        System.out.println(getlogisticsInfoFromAiCha("3839998850701"));
+//        System.out.println(getlogisticsInfoFromAiCha("3839998850701"));
 //        System.out.println(getLogisticsInfoFromKuaiDi("3839998850701"));
 //        System.out.println(getLogisticsInfoFromOtherKuaidiInterface("3839998850701"));
     }

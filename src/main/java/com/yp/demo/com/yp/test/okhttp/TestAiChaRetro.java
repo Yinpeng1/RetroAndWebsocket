@@ -61,7 +61,7 @@ public class TestAiChaRetro {
         @Override
         public void run() {
             getAiChaInfo("3839999344061");
-//            System.out.println(getAiChaInfo("3839999344061"));
+            System.out.println(getAiChaInfo("3839999344061"));
             try{
                 Thread.sleep(100);
             } catch (Exception e) {
