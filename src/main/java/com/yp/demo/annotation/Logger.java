@@ -1,5 +1,7 @@
 package com.yp.demo.annotation;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.lang.annotation.*;
 
 
@@ -8,5 +10,9 @@ import java.lang.annotation.*;
 @Documented
 public @interface Logger {
 
-    public String description();
+    /**
+     * 对日志的描述
+     * @return
+     */
+    String description() default StringUtils.EMPTY;
 }

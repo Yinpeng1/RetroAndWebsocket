@@ -13,6 +13,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.Query;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -41,7 +43,7 @@ public class TestAiChaRetro {
         String s = null;
         try {
             Response<String> jsonObjectResponse = call.execute();
-//            System.out.println(jsonObjectResponse);
+            System.out.println(jsonObjectResponse);
             if (StringUtils.isEmpty(jsonObjectResponse)) {
                 return "0";
             }
@@ -68,6 +70,15 @@ public class TestAiChaRetro {
             }
         }
     }
+
+    public static String stampToDate(String s){
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss sss");
+        long lt = new Long(s);
+        Date date = new Date(lt);
+        res = simpleDateFormat.format(date);
+        return res;
+    }
     public static void main(String[] args) {
 //        TestAiChaRetro ts = new TestAiChaRetro();
 //        SelectWayBill selectWayBill = new SelectWayBill(ts);
@@ -76,6 +87,9 @@ public class TestAiChaRetro {
 //           es.execute(selectWayBill);
 //        }
 //        es.shutdown();
-        System.out.println(getAiChaInfo("3839998850701"));
+        System.out.println(getAiChaInfo("3839999344061"));
+//        System.out.println("nihao");
+//        System.out.println("nihao".getBytes());
+//        System.out.println(new String("nihao".getBytes()));
     }
 }

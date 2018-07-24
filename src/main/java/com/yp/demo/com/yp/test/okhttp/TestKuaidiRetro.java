@@ -11,6 +11,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -40,6 +41,20 @@ public class TestKuaidiRetro {
     }
 
     public static void main(String[] args) {
-        System.out.println(getYunDaInfo("3839998850701"));
+//        System.out.println(getYunDaInfo("3839998850701"));
+        BigDecimal bg = new BigDecimal("100000000");
+        System.out.println(bg.toPlainString());
+        System.out.println(bg.doubleValue());
+
+//        System.out.println(trim(bg.toString()));
     }
+
+//    public static String trim(String str) {
+//        if (str.indexOf(".") != -1 && str.charAt(str.length() - 1) == '0') {
+//            return trim(str.substring(0, str.length() - 1));
+//        } else {
+//            return str.charAt(str.length() - 1) == '.' ? str.substring(0, str.length() - 1) : str;
+//        }
+//    }
+
 }

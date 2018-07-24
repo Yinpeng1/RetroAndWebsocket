@@ -29,10 +29,10 @@ public class TestKuadiController {
         return "kuaidi100==========="+ test.getLogisticsInfoFromOtherKuaidiInterface(waybill);
     }
 
-    @Scheduled(cron = "0/15 * * * * *")
-    public void dingShiqi(){
-        System.out.println("aicha==========="+ test.getlogisticsInfoFromAiCha("3839998850701"));
-        System.out.println("kuaidi==========="+ test.getLogisticsInfoFromKuaiDi("3839998850701"));
-        System.out.println("kuaidi100==========="+ test.getLogisticsInfoFromOtherKuaidiInterface("3839998850701"));
-    }
+//    @Scheduled(cron = "0/15 * * * * *")
+//    public void dingShiqi(){
+//        System.out.println("aicha==========="+ test.getlogisticsInfoFromAiCha("3839998850701"));
+//        System.out.println("kuaidi==========="+ test.getLogisticsInfoFromKuaiDi("3839998850701"));
+//        System.out.println("kuaidi100==========="+ test.getLogisticsInfoFromOtherKuaidiInterface("3839998850701"));
+//    }
 }
