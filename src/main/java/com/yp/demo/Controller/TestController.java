@@ -34,11 +34,11 @@ public class TestController {
 //            System.out.println("entry.getKey()+"+entry.getKey()+"================="+"entry.getValue()+"+entry.getValue())
 //        );
         List<String> list = new ArrayList();
-//        .stream().filter(t -> !t.equals(1)).collect(Collectors.toList())
         list.add("11");
         list.add("11");
         list.add("22");
-        List<String> list1 = new ArrayList<>();
+        list.stream().collect(Collectors.groupingBy(p -> p,Collectors.counting()))
+                .forEach((k,v) -> System.out.println(k + ":" + v));
 //        List s = list.stream().map(p -> ).collect(Collectors.toList());
 //        s.forEach(System.out::println);
 //        String s = "";
@@ -47,6 +47,8 @@ public class TestController {
 
         Map<String, Long> map = list.stream().collect(Collectors.groupingBy(p -> p,Collectors.counting()));
         map.forEach((k, v) -> System.out.println(k + ":" + v));
+        String s= "123";
+        System.out.println(s.hashCode());
 
 
 

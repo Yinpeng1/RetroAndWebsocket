@@ -21,7 +21,7 @@ public class TestProxy implements InvocationHandler {
 
     public static void main(String[] args) {
         ActionImpl realObject = new ActionImpl();
-        Action proxy = (Action) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{Action.class}, new TestProxy(realObject));
+        Action proxy = (Action) Proxy.newProxyInstance(Action.class.getClassLoader(), new Class[]{Action.class}, new TestProxy(realObject));
         proxy.doSomething("yp","10");
     }
 }
